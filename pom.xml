@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>hikariLearn</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>3.4.5</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.12</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.30</version>
+        </dependency>
+
+    </dependencies>
+    <!-- JDO Plugin -->
+    <plugin>
+        <groupId>org.datanucleus</groupId>
+        <artifactId>datanucleus-maven-plugin</artifactId>
+        <version>${datanucleus-maven-plugin.version}</version>
+        <configuration>
+            <api>JDO</api>
+            <props>${basedir}/datanucleus.properties</props>
+            <log4jConfiguration>${basedir}/log4j.properties</log4jConfiguration>
+            <verbose>true</verbose>
+            <fork>false</fork>
+            <!-- Solve windows line too long error -->
+        </configuration>
+        <executions>
+            <execution>
+                <phase>process-classes</phase>
+                <goals>
+                    <goal>enhance</goal>
+                </goals>
+            </execution>
+        </executions>
+    </plugin>
+</project>
