@@ -1,11 +1,12 @@
-# hikariLearn
+<h1 align="center">Hikari Learn</h1>
 
-Use
+> Connect to database
+<code>
 jdbcUrl = jdbc:postgresql://localhost:5432/postgres
-username = postgres
-password = password
+</code
 
-for DB
+<code>username = postgres</code>
+<code><br>password = password</code>
 
-db.sql - base file
-DataSource.java - HikariConfig: src to config file in properties
+> db.sql - simple data for database
+> HikariConfig.java - src to config file in properties
